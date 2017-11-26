@@ -1,11 +1,12 @@
 ﻿var app = app || {};
+app.Models = app.Models || {};
 
 (function () {
     'use strict';
 
-    app.Light = Backbone.Model.extend({
+    app.Models.Light = Backbone.Model.extend({
         defaults: {
-            color: "",
+            color: "black",
             lengthInSeconds: 0
         }
     });

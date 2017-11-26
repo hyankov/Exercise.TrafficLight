@@ -1,11 +1,31 @@
 ﻿var app = app || {};
+app.Collections = app.Collections || {};
 
 (function () {
     'use strict';
 
-    var Lights = Backbone.Collection.extend({
-        model: app.Light
-    });
+    app.Collections.Lights = Backbone.Collection.extend({
+        model: app.Models.Light,
 
-    app.lights = new Lights();
+        initialize: function (models) {
+            if (!models) {
+                this.setInNotOperationalMode();
+            }
+        },
+
+        setInNotOperationalMode: function () {
+            this.reset([
+                // Off
+                new app.Models.Light(),
+
+                // Blinking Yellow
+                new app.Models.Light({
+                    color: "yellow"
+                }),
+
+                // Off
+                new app.Models.Light()
+            ]);
+        }
+    });
 })();

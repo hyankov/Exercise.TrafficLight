@@ -1,22 +1,26 @@
 ﻿var app = app || {};
+app.Views = app.Views || {};
 
 (function ($) {
     'use strict';
 
-    app.AppView = Backbone.View.extend({
+    // ** Model: app.Collections.Lights
+
+    app.Views.AppView = Backbone.View.extend({
         initialize: function () {
-            this.listenTo(app.lights, 'add', this.addOne);
-            this.listenTo(app.lights, 'reset', this.addAll);
+            this.render();
+
+            this.listenTo(this.model, "update", this.render);
+            this.listenTo(this.model, "reset", this.render);
         },
 
-        addOne: function (light) {
-            var lightView = new app.LightView({ model: light });
-            this.$el.append(lightView.render().el);
-        },
-
-        addAll: function () {
+        render: function () {
             this.$el.html("");
-            app.lights.each(this.addOne, this);
+
+            var lightsView = new app.Views.LightsView({ model: this.model });
+            this.$el.append(lightsView.render().el);
+
+            return this;
         }
     });
 })(jQuery);

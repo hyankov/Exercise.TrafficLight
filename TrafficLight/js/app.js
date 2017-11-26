@@ -3,26 +3,28 @@
 $(function () {
     'use strict';
 
-    // Start rendering
-    new app.AppView({
-        el: "#trafficLight1"
+    app.model = new app.Collections.Lights(
+        //[
+        //    // Red
+        //    new app.Models.Light({
+        //        color: "red"
+        //    }),
+
+        //    // Yellow
+        //    new app.Models.Light({
+        //        color: "yellow"
+        //    }),
+
+        //    // Green
+        //    new app.Models.Light({
+        //        color: "green"
+        //    })
+        //]
+    );
+
+    // Normal operational
+    app.view = new app.Views.AppView({
+        el: "#container",
+        model: app.model
     });
-
-    // Build the Traffic Light out of the following lights
-    app.lights.add([
-        // Green
-        new app.Light({
-            color: "green"
-        }),
-
-        // Yellow
-        new app.Light({
-            color: "yellow"
-        }),
-
-        // Red
-        new app.Light({
-            color: "red"
-        })
-    ]);
 });
