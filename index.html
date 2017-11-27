@@ -9,9 +9,9 @@
 
     <!-- Traffic Lights template -->
     <script type="text/template" id="lights-template">
-        <div class="trafficLightContainer">
+        <div class="trafficlight">
             <% _.each(lights, function(lightStateMachine) { %>
-            <div class="trafficLight" style="background-color: <%- lightStateMachine.color %>;"></div>
+            <div class="light" style="background-color: <%- lightStateMachine.color %>;"></div>
             <% }); %>
         </div>
     </script>

@@ -5,13 +5,11 @@ app.Models = app.Models || {};
     'use strict';
 
     app.Models.Light = Backbone.Model.extend({
-        defaults: {
-            color: "",
-            isOn: false
-        },
-
-        toggle: function () {
-            this.set("isOn", !this.get("isOn"));
+        defaults: function () {
+            return {
+                color: "",
+                isOn: false
+            };
         },
 
         getCurrentColor: function () {
