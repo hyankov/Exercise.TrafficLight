@@ -10,8 +10,8 @@
     <!-- Traffic Lights template -->
     <script type="text/template" id="lights-template">
         <div class="trafficLightContainer">
-            <% _.each(lights, function(light) { %>
-            <div class="trafficLight" style="background-color: <%- light.color %>;"></div>
+            <% _.each(lights, function(lightStateMachine) { %>
+            <div class="trafficLight" style="background-color: <%- lightStateMachine.color %>;"></div>
             <% }); %>
         </div>
     </script>
@@ -26,12 +26,13 @@
     <!-- =========== -->
     <!-- App Scripts -->
     <!-- =========== -->
-    <script src="/js/models/light.js"></script>
-    <script src="/js/collections/lights.js"></script>
-    <script src="/js/views/lights-view.js"></script>
-    <script src="/js/views/app-view.js"></script>
+    <script src="js/models/light.js"></script>
+    <script src="js/models/lightStateMachine.js"></script>
+    <script src="js/collections/lights.js"></script>
+    <script src="js/views/lights-view.js"></script>
+    <script src="js/views/app-view.js"></script>
 
     <!-- Start! -->
-    <script src="/js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

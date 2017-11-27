@@ -5,7 +5,7 @@ app.Collections = app.Collections || {};
     'use strict';
 
     app.Collections.Lights = Backbone.Collection.extend({
-        model: app.Models.Light,
+        model: app.Models.LightStateMachine,
 
         initialize: function (models) {
             if (!models) {
@@ -16,15 +16,16 @@ app.Collections = app.Collections || {};
         setInNotOperationalMode: function () {
             this.reset([
                 // Off
-                new app.Models.Light(),
+                new app.Models.LightStateMachine(),
 
                 // Blinking Yellow
-                new app.Models.Light({
-                    color: "yellow"
+                new app.Models.LightStateMachine({
+                    light: new app.Models.Light({ color: "yellow" }),
+                    interval: 0.8
                 }),
 
                 // Off
-                new app.Models.Light()
+                new app.Models.LightStateMachine()
             ]);
         }
     });

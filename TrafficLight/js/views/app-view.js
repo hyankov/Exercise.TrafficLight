@@ -12,6 +12,7 @@ app.Views = app.Views || {};
 
             this.listenTo(this.model, "update", this.render);
             this.listenTo(this.model, "reset", this.render);
+            this.listenTo(this.model, "change", this.render);
         },
 
         render: function () {
